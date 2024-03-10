@@ -1,4 +1,5 @@
 Vendor/
 
+.idea
 composer.json
 composer.lock
