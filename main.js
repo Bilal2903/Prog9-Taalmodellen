@@ -8,9 +8,11 @@ document.getElementById('analyzeButton').addEventListener('click', analyzeText);
 function analyzeText() {
     // Get the text the user entered
     const text = document.getElementById('textInput').value;
+    console.log('Text entered:', text);
 
     // Get the number chosen by the user
     const nValue = parseInt(document.getElementById('nValue').value);
+    console.log('Value of n:', nValue);
 
     // Call a function to count word pairs and show the results
     generateNGrams(text, nValue);
@@ -40,10 +42,15 @@ function generateNGrams(text, n) {
             return response.text(); // Get the text
         })
         .then(text => {
+            console.log('Text fetched successfully:', text);
+
             // Split the text into sentences
             const sentences = splitIntoSentences(text);
+            console.log('Sentences:', sentences);
+
             // Convert sentences into words
             const words = preprocessText(sentences.join(' '));
+            console.log('Words after preprocessing:', words);
 
             // Count word pairs in the text
             for (let i = 0; i < words.length - n; i++) {
